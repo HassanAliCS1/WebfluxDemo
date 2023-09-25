@@ -8,8 +8,10 @@ public class MonoFluxTest {
 
     @Test
     public void testMono(){
-        Mono<String> monoString = Mono.just("Hassan").log();
-        monoString.subscribe(System.out::println);
+        Mono<?> monoString = Mono.just("Hassan")
+                .then(Mono.error(new RuntimeException("Exception occured")))
+                .log();
+        monoString.subscribe(System.out::println,(e) -> System.out.println(e.getMessage()));
 
     }
 }
