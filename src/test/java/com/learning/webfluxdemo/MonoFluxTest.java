@@ -20,7 +20,7 @@ public class MonoFluxTest {
     public void testFlux(){
         Flux<String> fluxString = Flux.just("Spring", "Spring Boot", "Hibernate", "microservice")
                 .concatWithValues("AWS")
-                .concatWith(Flux.error(new RuntimeException("Exception occured")))
+                .concatWith(Flux.error(new RuntimeException("Exception occurred")))
                 .log();
 
         fluxString.subscribe(System.out::println);
