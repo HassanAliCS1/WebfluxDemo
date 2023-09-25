@@ -18,7 +18,7 @@ public class MonoFluxTest {
 
     @Test
     public void testFlux(){
-        Flux<String> fluxString = Flux.just("Spring", "Spring Boot", "Hibernate", "microservice");
+        Flux<String> fluxString = Flux.just("Spring", "Spring Boot", "Hibernate", "microservice").log();
 
         fluxString.subscribe(System.out::println);
     }
